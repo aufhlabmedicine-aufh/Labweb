@@ -6,23 +6,34 @@
 <title>檢驗資料總覽</title>
 
 <style>
+/* =========================
+   NHI theme（內嵌，不外掛css）
+   ========================= */
 :root{
-  --nhi-primary:#1b7a84;
-  --nhi-primary-dark:#0f5f68;
-  --nhi-bg:#f4f6f6;
+  --nhi-primary:#43558F;
+  --nhi-primary-dark:#30406F;
+  --nhi-bg:#F6F7FB;
   --nhi-card:#ffffff;
-  --nhi-head:#e6f2f3;
-  --nhi-border:#cfd8dc;
-  --nhi-text:#263238;
+  --nhi-head:#ECEFFC;
+  --nhi-border:#D2D6E4;
+  --nhi-text:#2F3445;
+  --nhi-link:#3E5DA8;
+  --nhi-accent:#D9922E;
+  --nhi-hover:#F1F3FC;
 }
+
+
+/* base */
 body{
   margin:0;
   background:var(--nhi-bg);
   font-family:"Microsoft JhengHei","PingFang TC",Arial,sans-serif;
   color:var(--nhi-text);
 }
+
+/* top bar */
 .nhi-topbar{
-  background:var(--nhi-primary);
+  background:linear-gradient(135deg,var(--nhi-primary-dark),var(--nhi-primary));
   color:#fff;
   padding:14px 18px;
   display:flex;
@@ -41,24 +52,27 @@ body{
 }
 
 /* --- 舊版 auto-style* 對應 NHI --- */
-.auto-style2{
+.auto-style2{ /* 左欄 label */
   text-align:center;
   font-size:15px;
-  color:#004d55;
+  color:#303F73;
   border:1px solid var(--nhi-border);
   background:var(--nhi-head);
   font-weight:700;
 }
 .auto-style5{ border:0; background:transparent; }
 .auto-style7{ border:0; background:transparent; }
-.auto-style10{
+
+.auto-style10{ /* 右欄 value */
   border:1px solid var(--nhi-border);
   background:#fff;
   font-size:15px;
   color:var(--nhi-text);
 }
 .auto-style11{ margin:0; }
-.auto-style37{
+.auto-style16{ margin:0; line-height:1.7; }
+
+.auto-style37{ /* 右欄 value（含圖片） */
   border:1px solid var(--nhi-border);
   background:#fff;
   font-size:15px;
@@ -79,7 +93,7 @@ body{
   text-align:center;
   font-weight:700;
   background:var(--nhi-head);
-  color:#004d55;
+  color:#303F73;
 }
 .auto-style43{
   margin:0;
@@ -96,13 +110,13 @@ body{
 .card{
   background:var(--nhi-card);
   border:1px solid var(--nhi-border);
-  border-radius:10px;
+  border-radius:14px;
   overflow:hidden;
-  box-shadow:0 2px 10px rgba(0,0,0,.04);
+  box-shadow:0 8px 24px rgba(48,64,111,.10);
 }
 .card-head{
   padding:10px 14px;
-  background:#fff;
+  background:#FAFAFD;
   border-bottom:1px solid var(--nhi-border);
   display:flex;
   align-items:center;
@@ -112,7 +126,7 @@ body{
 }
 .breadcrumb{
   font-size:13px;
-  color:#607d8b;
+  color:#6A7188;
 }
 .badge{
   display:inline-block;
@@ -120,25 +134,27 @@ body{
   border-radius:999px;
   background:var(--nhi-head);
   border:1px solid var(--nhi-border);
-  color:#004d55;
+  color:#303F73;
   font-size:13px;
 }
+
+/* main table */
 .main-table{
   width:100%;
   border-collapse:collapse;
 }
 .main-table tr:hover td{
-  background:#f0fbfc;
+  background:#F1F3FC;
 }
 .main-table td{
   padding:12px;
   vertical-align:top;
 }
 
-/* image box 300x200 */
+/* image box 400x400 */
 .img-box{
-  width:300px;
-  height:200px;
+  width:400px;
+  height:400px;
   margin:0 auto;
   display:flex;
   align-items:center;
@@ -147,8 +163,8 @@ body{
   background:#fff;
 }
 .img-box img{
-  max-width:300px;
-  max-height:200px;
+  max-width:400px;
+  max-height:400px;
   width:auto;
   height:auto;
   object-fit:contain;
@@ -157,17 +173,94 @@ body{
 
 .footer{
   margin-top:12px;
-  color:#607d8b;
+  color:#6A7188;
   font-size:12px;
   text-align:center;
 }
+
+a{
+  color:var(--nhi-link);
+  text-decoration:none;
+  font-weight:600;
+}
+a:hover{
+  color:var(--nhi-primary-dark);
+  text-decoration:underline;
+}
+.nhi-topbar{
+  box-shadow:0 3px 12px rgba(48,64,111,.18);
+}
+.nhi-topbar .sub{
+  border-left:1px solid rgba(255,255,255,.35);
+  padding-left:12px;
+}
+.card{
+  position:relative;
+}
+.card::before{
+  content:"";
+  display:block;
+  height:4px;
+  background:linear-gradient(90deg,var(--nhi-primary),var(--nhi-accent));
+}
+.auto-style2{
+  width:24%;
+  min-width:170px;
+}
+.auto-style10,
+.auto-style37{
+  line-height:1.75;
+}
+.badge{
+  color:#303F73;
+  font-weight:700;
+}
+.main-table tr{
+  transition:background .18s ease;
+}
+@media (max-width:700px){
+  .page-wrap{
+    margin:10px auto 20px;
+    padding:0 8px;
+  }
+  .nhi-topbar{
+    padding:12px 14px;
+  }
+  .nhi-topbar .sub{
+    width:100%;
+    border-left:0;
+    padding-left:0;
+  }
+  .main-table,
+  .main-table tbody,
+  .main-table tr,
+  .main-table td{
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+  }
+  .auto-style2{
+    width:100%;
+    text-align:left;
+  }
+  .img-box{
+    width:100%;
+    height:auto;
+    min-height:240px;
+  }
+  .img-box img{
+    max-width:100%;
+    height:auto;
+  }
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="nhi-topbar">
-  <div class="title">亞洲大學附屬醫院 檢驗科</div>
+  <div class="title">亞洲大學附設豐原醫院 檢驗科</div>
   <div class="sub">檢驗資料總覽</div>
 </div>
 
