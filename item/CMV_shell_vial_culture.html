@@ -83,6 +83,9 @@ body{
   text-align:center;
   border:1px solid var(--nhi-border);
   background:#fff;
+  padding:10px;
+  line-height:1.6;
+  overflow-wrap:anywhere;
 }
 .auto-style41,.auto-style42{
   border:1px solid var(--nhi-border);
@@ -110,8 +113,8 @@ body{
 .card{
   background:var(--nhi-card);
   border:1px solid var(--nhi-border);
-  border-radius:14px;
-  overflow:hidden;
+  border-radius:12px;
+  overflow:visible;
   box-shadow:0 8px 24px rgba(48,64,111,.10);
 }
 .card-head{
@@ -142,6 +145,7 @@ body{
 .main-table{
   width:100%;
   border-collapse:collapse;
+  table-layout:fixed;
 }
 .main-table tr:hover td{
   background:#F1F3FC;
@@ -153,9 +157,11 @@ body{
 
 /* image box 400x400 */
 .img-box{
-  width:400px;
-  height:400px;
+  width:100%;
+  height:260px;
   margin:0 auto;
+  padding:10px;
+  box-sizing:border-box;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -163,11 +169,10 @@ body{
   background:#fff;
 }
 .img-box img{
-  max-width:400px;
-  max-height:400px;
-  width:auto;
-  height:auto;
+  width:100%;
+  height:100%;
   object-fit:contain;
+  object-position:center;
   display:block;
 }
 
@@ -204,8 +209,9 @@ a:hover{
   background:linear-gradient(90deg,var(--nhi-primary),var(--nhi-accent));
 }
 .auto-style2{
-  width:24%;
-  min-width:170px;
+  width:195px;
+  min-width:195px;
+  box-sizing:border-box;
 }
 .auto-style10,
 .auto-style37{
@@ -218,6 +224,26 @@ a:hover{
 .main-table tr{
   transition:background .18s ease;
 }
+
+.specimen-grid{
+  margin:-7px;
+}
+.specimen-card{
+  height:100%;
+  background:#fff;
+  border:1px solid var(--nhi-border);
+}
+.specimen-card .auto-style40{
+  border-left:0;
+  border-right:0;
+}
+.specimen-card tr:first-child .auto-style40{
+  border-top:0;
+}
+.specimen-card tr:last-child .auto-style40{
+  border-bottom:0;
+}
+
 @media (max-width:700px){
   .page-wrap{
     margin:10px auto 20px;
@@ -241,16 +267,33 @@ a:hover{
   }
   .auto-style2{
     width:100%;
+    min-width:0;
     text-align:left;
   }
   .img-box{
     width:100%;
-    height:auto;
-    min-height:240px;
+    height:220px;
+    min-height:0;
   }
   .img-box img{
-    max-width:100%;
-    height:auto;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+  .specimen-grid,
+  .specimen-grid tbody,
+  .specimen-grid tr,
+  .specimen-grid td{
+    display:block;
+    width:100% !important;
+    box-sizing:border-box;
+  }
+  .specimen-grid{
+    margin:0;
+    border-spacing:0;
+  }
+  .specimen-grid td{
+    margin-bottom:14px;
   }
 }
 
@@ -275,127 +318,97 @@ a:hover{
       <tbody>
         
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">檢驗項目</p></td>
+  <td class="auto-style2"><p class="auto-style11">檢驗項目</p></td>
   <td class="auto-style10"><p class="auto-style43">巨細胞病毒shell vial培養（CMV shell vial culture）</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">檢驗表單</p></td>
+  <td class="auto-style2"><p class="auto-style11">檢驗表單</p></td>
   <td class="auto-style10"><p class="auto-style43">病毒培養檢驗單 (CM-T273)</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">參考範圍</p></td>
+  <td class="auto-style2"><p class="auto-style11">參考範圍</p></td>
   <td class="auto-style10"><p class="auto-style43">Virus was not isolated</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">採檢容器及檢體量</p></td>
+  <td class="auto-style2"><p class="auto-style11">採檢容器及檢體量</p></td>
   <td class="auto-style37">
-    <table style="width: 100%;">
+    <table class="specimen-grid" style="width:100%; table-layout:fixed; border-collapse:separate; border-spacing:14px;">
 <tr>
-<td style="width:50%;"><table style="width: 100%;"><tr><td class="auto-style40"><div class="img-box"><img alt="" src="../img/007紫頭管.jpg" /></div></td></tr><tr><td class="auto-style40"><span class="auto-style43">3mL紫頭管/血液<br />
+<td style="width:50%;"><table class="specimen-card" style="width:100%; table-layout:fixed; border-collapse:collapse;"><tr><td class="auto-style40"><div class="img-box"><img alt="" src="../img/007紫頭管.jpg" /></div></td></tr><tr><td class="auto-style40"><span class="auto-style43">3mL紫頭管/血液<br />
 血液採檢量1-3mL</span></td></tr></table></td>
-<td style="width:50%;"><table style="width: 100%;"><tr><td class="auto-style40"><div class="img-box"><img alt="" src="../img/026無菌離心管.jpg" /></div></td></tr><tr><td class="auto-style40"><span class="auto-style43">無菌離心管/尿液、體液<br />
+<td style="width:50%;"><table class="specimen-card" style="width:100%; table-layout:fixed; border-collapse:collapse;"><tr><td class="auto-style40"><div class="img-box"><img alt="" src="../img/026無菌離心管.jpg" /></div></td></tr><tr><td class="auto-style40"><span class="auto-style43">無菌離心管/尿液、體液<br />
 尿液採檢量10mL以上<br />
 體液採檢量2mL以上</span></td></tr></table></td>
 </tr>
 <tr>
-<td style="width:50%;"><table style="width: 100%;"><tr><td class="auto-style40"><div class="img-box"><img alt="" src="../img/013無菌痰盒NEW.jpg" /></div></td></tr><tr><td class="auto-style40"><span class="auto-style43">無菌痰盒/痰液<br />
+<td style="width:50%;"><table class="specimen-card" style="width:100%; table-layout:fixed; border-collapse:collapse;"><tr><td class="auto-style40"><div class="img-box"><img alt="" src="../img/013無菌痰盒NEW.jpg" /></div></td></tr><tr><td class="auto-style40"><span class="auto-style43">無菌痰盒/痰液<br />
 痰液採檢量5mL</span></td></tr></table></td>
-<td style="width:50%;"><table style="width: 100%;"><tr><td class="auto-style40"><div class="img-box"><img alt="" src="../img/044VTM病毒核酸採檢組.jpg" /></div></td></tr><tr><td class="auto-style40"><span class="auto-style43">VTM病毒採檢管/swab</span></td></tr></table></td>
+<td style="width:50%;"><table class="specimen-card" style="width:100%; table-layout:fixed; border-collapse:collapse;"><tr><td class="auto-style40"><div class="img-box"><img alt="" src="../img/044VTM病毒核酸採檢組.jpg" /></div></td></tr><tr><td class="auto-style40"><span class="auto-style43">VTM病毒採檢管/swab</span></td></tr></table></td>
 </tr>
 </table>
   </td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">採檢注意事項</p></td>
+  <td class="auto-style2"><p class="auto-style11">採檢注意事項</p></td>
   <td class="auto-style10"><p class="auto-style43">1.採血後倒轉試管8-10次。<br />
 2.可送眼睛拭子、糞便檢體(肛門拭子)、喉頭拭子。需將拭子放進傳送培養液內送檢。<br />
 3.盡量在症狀出現或發燒3天內、投予抗病毒藥物前採集檢體。<br />
 4.採集後立即冰浴送檢。檢體若無法立即運送可存放在2-8℃冰箱並於24小時內送檢。</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">檢驗方法</p></td>
+  <td class="auto-style2"><p class="auto-style11">檢驗方法</p></td>
   <td class="auto-style10"><p class="auto-style43">shell vial離心培養</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">檢驗效能</p></td>
+  <td class="auto-style2"><p class="auto-style11">檢驗效能</p></td>
   <td class="auto-style10"><p class="auto-style43">依代檢單位公告</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">負責組別</p></td>
+  <td class="auto-style2"><p class="auto-style11">負責組別</p></td>
   <td class="auto-style10"><p class="auto-style43">代檢單位：台中中國附醫(微生物組病毒室)#11202-308<br />
 責任單位：亞大醫院細菌組#1293</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">報告完成時間</p></td>
+  <td class="auto-style2"><p class="auto-style11">報告完成時間</p></td>
   <td class="auto-style10"><p class="auto-style43">委外7工作天</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">臨床意義</p></td>
+  <td class="auto-style2"><p class="auto-style11">臨床意義</p></td>
   <td class="auto-style10"><p class="auto-style43">巨細胞病毒感染大多是無症狀的次臨床感染，可引起新生兒的先天性感染，伺機性感染，病毒培養除可做臨床懷疑受病毒感染者之佐證。</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">加驗時效</p></td>
+  <td class="auto-style2"><p class="auto-style11">加驗時效</p></td>
   <td class="auto-style10"><p class="auto-style43">不適用</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">健保代碼</p></td>
+  <td class="auto-style2"><p class="auto-style11">健保代碼</p></td>
   <td class="auto-style10"><p class="auto-style43">14001B</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">健保點數</p></td>
+  <td class="auto-style2"><p class="auto-style11">健保點數</p></td>
   <td class="auto-style10"><p class="auto-style43">350</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">自費收費</p></td>
+  <td class="auto-style2"><p class="auto-style11">自費收費</p></td>
   <td class="auto-style10"><p class="auto-style43">438</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
 
 <tr>
-  <td style="width: 50px" class="auto-style5">&nbsp;</td>
-  <td style="width: 210px" class="auto-style2"><p class="auto-style11">更新日期</p></td>
+  <td class="auto-style2"><p class="auto-style11">更新日期</p></td>
   <td class="auto-style10"><p class="auto-style43">115/03/04</p></td>
-  <td class="auto-style7" style="width: 50px">&nbsp;</td>
 </tr>
       </tbody>
     </table>
