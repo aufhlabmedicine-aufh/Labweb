@@ -12,13 +12,13 @@ html, body {
 
 .layout {
     display: grid;
-    grid-template-rows: 64px 1fr;
+    grid-template-rows: 72px 1fr;
     height: 100%;
 }
 
 .main {
     display: grid;
-    grid-template-columns: 174px 1fr;
+    grid-template-columns: 220px 1fr;
 }
 
 iframe {
@@ -26,6 +26,14 @@ iframe {
     height: 100%;
     border: none;
 }
+
+@media (max-width: 760px) {
+    .layout { grid-template-rows: 72px auto; height:auto; min-height:100%; }
+    .main { grid-template-columns: 1fr; grid-template-rows: auto minmax(70vh, 1fr); }
+    .main iframe:first-child { height: 360px; }
+    .main iframe:last-child { min-height: 70vh; }
+}
+
 </style>
 </head>
 
